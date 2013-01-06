@@ -10,11 +10,11 @@
         <a href="http://www.virtour.com.br/" class="brand">Virtour</a>
         <div class="nav-collapse collapse">
           <ul class="nav">
-            <li class="active"><a href="index.php">Home</a></li>
-            <li><a href="tour-virtual.php">Tour Virtual</a></li>
-            <li><a href="empresa.php">A Empresa</a></li>
-            <li><a href="clientes.php">Clientes</a></li>
-            <li><a href="contato.php">Contato</a></li>
+            <li id="menu-home"><a href="index.php">Home</a></li>
+            <li id="menu-tour"><a href="tour-virtual.php">Tour Virtual</a></li>
+            <li id="menu-empresa"><a href="empresa.php">A Empresa</a></li>
+            <li id="menu-clientes"><a href="clientes.php">Clientes</a></li>
+            <li id="menu-contato"><a href="contato.php">Contato</a></li>
           </ul>
           <ul class="nav pull-right">
             <li><a href="login.php">Login</a></li>

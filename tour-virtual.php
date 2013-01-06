@@ -1,5 +1,6 @@
 <?php 
   $title = "Tour Virtual";
+  $activeMenu = "tour";
 ?>
 <?php include("shared/top.php") ?>
 

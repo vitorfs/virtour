@@ -1,5 +1,6 @@
 <?php
   $title = null;
+  $activeMenu = "home";
 ?>
 <!DOCTYPE html>
 <html>
