@@ -9,7 +9,6 @@
   <script>
   	$(function () {
   		var activeMenu = "<?php echo isset($activeMenu) ? $activeMenu : null; ?>";
-  		console.log(activeMenu);
   		if (activeMenu != null) {
   			$("li#menu-" + activeMenu).addClass("active");
   		}
