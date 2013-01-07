@@ -1,6 +1,6 @@
 <div class="navbar">
   <div class="navbar-inner">
-    <a class="brand" href="#">Área Administrativa</a>
+    <a class="brand" href="admin.php">Virtour Administrativo</a>
     <ul class="nav">
       <li id="menu-home"><a href="admin.php">Home</a></li>
       <li id="menu-clientes"><a href="clientes.php">Clientes</a></li>
