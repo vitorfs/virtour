@@ -17,7 +17,7 @@
             <li id="menu-contato"><a href="contato.php">Contato</a></li>
           </ul>
           <ul class="nav pull-right">
-            <li><a href="login.php">Login</a></li>
+            <li><a href="admin/login.php">Login</a></li>
           </ul>            
         </div>
       </div>

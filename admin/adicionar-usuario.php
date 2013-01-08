@@ -1,6 +1,6 @@
 <?php 
-    require_once("../src/model/Usuario.php");
-    require_once("../src/controller/ManterUsuarioController.php");
+    require_once("src/model.Usuario.php");
+    require_once("src/controller.ManterUsuario.php");
 
     $activeMenu = "usuarios";
     $ctrUsuario = new ManterUsuarioController();

@@ -1,8 +1,8 @@
 <div class="navbar">
   <div class="navbar-inner">
-    <a class="brand" href="admin.php">Virtour Administrativo</a>
+    <a class="brand" href="index.php">Virtour Administrativo</a>
     <ul class="nav">
-      <li id="menu-home"><a href="admin.php">Home</a></li>
+      <li id="menu-home"><a href="index.php">Home</a></li>
       <li id="menu-usuarios"><a href="usuarios.php">Usuários</a></li>
       <li id="menu-empresas"><a href="empresas.php">Empresas</a></li>
       <li id="menu-tours"><a href="tours.php">Tours</a></li>
