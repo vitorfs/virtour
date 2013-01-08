@@ -3,6 +3,16 @@
     require_once("../src/controller/ManterUsuarioController.php");
 
     $activeMenu = "usuarios";
+    $ctrUsuario = new ManterUsuarioController();
+
+    if ($_POST) {
+        $usua = new Usuario();
+        $usua->nome = $_POST["nome"];
+        $usua->senha = $_POST["senha"];
+        $usua->email = $_POST["email"];
+        $usua->perfil = $_POST["perfil"];
+        $usua->status = $_POST["status"] == "on" ? 1 : 0;
+    }
 ?>
 
 <?php include("shared/top.php") ?>

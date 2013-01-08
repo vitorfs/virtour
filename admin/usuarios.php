@@ -1,5 +1,5 @@
-<?php 
-  $activeMenu = "usuarios";
+<?php
+    $activeMenu = "usuarios";
 ?>
 
 <?php include("shared/top.php") ?>

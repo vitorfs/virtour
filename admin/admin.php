@@ -1,5 +1,5 @@
 <?php 
-  $activeMenu = "home";
+    $activeMenu = "home";
 ?>
 
 <?php include("shared/top.php") ?>

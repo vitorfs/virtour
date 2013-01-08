@@ -2,11 +2,10 @@
 /**
 * @author Vitor Freitas
 */
-class UsuarioDao
+class UsuarioDao extends Dao
 {
     
-    function __construct()
-    {
+    function __construct() {
         
     }
 }

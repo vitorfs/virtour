@@ -1,4 +1,7 @@
 <?php
+/**
+* @author Vitor Freitas
+*/
 class Usuario
 {
     private $id;
@@ -8,9 +11,8 @@ class Usuario
 	private $perfil;
 	private $status;
 
-	public function __construct($email, $senha) {
-		$this->email = $email;
-		$this->senha = $senha;
+	public function __construct() {
+
 	}
 
 	public function __get($property) {
