@@ -1,18 +1,5 @@
 <?php 
-    require_once("src/model.Usuario.php");
-    require_once("src/controller.ManterUsuario.php");
-
     $activeMenu = "usuarios";
-    $ctrUsuario = new ManterUsuarioController();
-
-    if ($_POST) {
-        $usua = new Usuario();
-        $usua->nome = $_POST["nome"];
-        $usua->senha = $_POST["senha"];
-        $usua->email = $_POST["email"];
-        $usua->perfil = $_POST["perfil"];
-        $usua->status = $_POST["status"] == "on" ? 1 : 0;
-    }
 ?>
 
 <?php include("shared/top.php") ?>
@@ -20,7 +7,7 @@
         <li><a href="usuarios.php">Usuários</a> <span class="divider">/</span></li>
         <li class="active">Adicionar</li>
     </ul>
-    <form action="" method="post" class="form-horizontal">
+    <form action="facade.php?Acao=IncluirUsuario" method="post" class="form-horizontal">
         <div class="control-group">
             <label class="control-label" for="nome">Nome</label>
             <div class="controls">

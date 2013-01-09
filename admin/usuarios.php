@@ -1,4 +1,8 @@
 <?php
+    require_once("src/model.Usuario.php");
+    require_once("src/dao.UsuarioDao.php");
+?>
+<?php
     $activeMenu = "usuarios";
 ?>
 
@@ -14,7 +18,6 @@
         </div>
         <button type="button" class="btn"><i class="icon-question-sign"></i></button>
     </form>
-
     <table class="table table-striped table-bordered">
         <thead>
             <tr>
@@ -26,16 +29,22 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>VITOR FREITAS E SOUZA</td>
-                <td>vitorfs@gmail.com</td>
-                <td>Ativo</td>
-                <td>Admin</td>
-                <td>
-                    <a rel="tooltip" href="#" title="Editar Usuário"><i class="icon-pencil"></i></a>&nbsp;
-                    <a rel="tooltip" href="#" title="Excluir Usuário"><i class="icon-remove"></i></a>
-                </td>
-            </tr>
+            <?php  
+                $usuarioDao = new UsuarioDao();
+                $usuarios = $usuarioDao->obterListaUsuarios();
+                for ($i=0; $i < count($usuarios); $i++) { 
+                    echo "<tr>";
+                    echo "<td>" . $usuarios[$i]->nome . "</td>";
+                    echo "<td>" . $usuarios[$i]->email . "</td>";
+                    echo "<td>" . $usuarios[$i]->status . "</td>";
+                    echo "<td>" . $usuarios[$i]->perfil . "</td>";
+                    echo "<td>";
+                    echo "<a rel=\"tooltip\" href=\"#\" title=\"Editar Usuário\"><i class=\"icon-pencil\"></i></a>&nbsp;";
+                    echo "<a rel=\"tooltip\" href=\"#\" title=\"Excluir Usuário\"><i class=\"icon-remove\"></i></a>";
+                    echo "</td>";
+                    echo "</tr>";
+                }
+            ?>
         </tbody>
     </table>
     <script type="text/javascript">

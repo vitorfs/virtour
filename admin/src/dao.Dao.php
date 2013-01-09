@@ -2,13 +2,13 @@
 /**
 * @author Vitor Freitas
 */
-class Dao
+abstract class Dao
 {
     protected $conn;
 
     function __construct()
     {
-        $this->conn = mysql_connect("localhost", "root", "");
+        $this->conn = mysql_connect("mysql08.redehost.com.br", "u_app", "Cocadaboa01");
     }
 }
 ?>

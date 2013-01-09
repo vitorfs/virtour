@@ -2,7 +2,7 @@
 /**
 * @author Vitor Freitas
 */
-class ManterUsuarioController
+class ManterUsuario
 {
     private $usuarioDao;
 
