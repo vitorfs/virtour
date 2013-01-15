@@ -15,7 +15,7 @@
     <?php include("nav.php") ?>
     <div class="container">
         <?php if (isset($_SESSION["mensagem"])): ?>
-            <div class="alert alert-success fade in">
+            <div class="alert alert-success fade in" id="mensagens">
                 <button type="button" class="close" data-dismiss="alert">&times;</button>
                 <?php 
                     echo $_SESSION["mensagem"];
@@ -25,7 +25,7 @@
             <script>
                 $(function () {
                     setTimeout(function () {
-                        $(".alert").alert("close");
+                        $("div#mensagens").alert("close");
                     }, 5000);
                 });
             </script>

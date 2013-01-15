@@ -2,7 +2,7 @@
 
 <?php
     session_start();
-    
+
     $facade = new Facade();
     $paginaRetorno = "";
 
@@ -15,6 +15,7 @@
             break;
 
         case "ExcluirUsuario":
+            $paginaRetorno = $facade->excluirUsuario($_POST);
             break;
 
         default:

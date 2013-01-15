@@ -4,8 +4,6 @@
 */
 class Usuario
 {
-	const TABLE_NAME = "usuarios";
-
     private $id;
     const LB_ID = "Id";
     const CL_ID = "id";

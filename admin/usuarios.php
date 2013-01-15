@@ -41,14 +41,40 @@
                     echo "<td>" . $usuario->perfil . "</td>";
                     echo "<td>";
                     echo "<a rel=\"tooltip\" href=\"#\" title=\"Editar Usuário\"><i class=\"icon-pencil\"></i></a>&nbsp;";
-                    echo "<a rel=\"tooltip\" href=\"#\" title=\"Excluir Usuário\"><i class=\"icon-remove\"></i></a>";
+                    echo "<a rel=\"tooltip\" href=\"javascript:excluirUsuario('" . $usuario->id . "', '" . $usuario->nome . "');\" title=\"Excluir Usuário\"><i class=\"icon-remove\"></i></a>";
                     echo "</td>";
                     echo "</tr>";
                 }
             ?>
         </tbody>
     </table>
+    <form action="facade.php?Acao=ExcluirUsuario" method="post">
+        <input type="hidden" name="id" id="id-exclusao">
+        <div class="modal hide fade" id="modal-excluir">
+            <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h3>Excluir Usuário</h3>
+            </div>
+            <div class="modal-body">
+                <div class="alert alert-warning fade in">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <strong>Atenção!</strong> Esta operação não poderá ser desfeita.
+                </div>
+                <p>Confirmar exclusão do usuário <strong><span id="nome-excluir"></span></strong>?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" onclick="$('div#modal-excluir').modal('hide');" class="btn">Cancelar</button>
+                <button type="submit" class="btn btn-danger">Excluir</button>
+            </div>
+        </div>
+    </form>
     <script type="text/javascript">
+        function excluirUsuario(id, nome) {
+            $("input#id-exclusao").val(id);
+            $("span#nome-excluir").text(nome);
+            $("div#modal-excluir").modal();
+        }
+
         $(function () {
             $("a[rel=tooltip]").tooltip();
             $("table#tbl-usuarios").possuiRegistros();

@@ -21,7 +21,20 @@ class Facade
 
         $dao->insert($usua);
 
-        $_SESSION["mensagem"] = "Usuário " . $usua->nome . " foi incluído com sucesso!";
+        $_SESSION["mensagem"] = "Usuário <strong>" . $usua->nome . "</strong> foi incluído com sucesso!";
+
+        return "usuarios.php";
+    }
+
+    public function excluirUsuario($form) {
+        $id = $form["id"];
+
+        $dao = new UsuarioDao();
+        $usua = $dao->obterPorId($id);
+
+        $dao->delete($id);
+
+        $_SESSION["mensagem"] = "Usuário <strong>" . $usua->nome . "</strong> foi excluído com sucesso!";
 
         return "usuarios.php";
     }
