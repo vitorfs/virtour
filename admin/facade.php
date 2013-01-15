@@ -1,6 +1,8 @@
 <?php require_once("src/controller.Facade.php") ?>
 
 <?php
+    session_start();
+    
     $facade = new Facade();
     $paginaRetorno = "";
 
@@ -18,6 +20,6 @@
         default:
             break;
     }
-    
+
     header("Location: " . $paginaRetorno);
 ?>

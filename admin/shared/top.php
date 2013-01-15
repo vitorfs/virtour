@@ -1,3 +1,4 @@
+<?php session_start() ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,6 +9,7 @@
     <link href="css/admin.css" rel="stylesheet" media="screen">
     <script src="../js/jquery-1.8.3.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>  
+    <script src="js/admin.js"></script>
 </head>
 <body>
     <?php include("nav.php") ?>

@@ -1,3 +1,5 @@
+<?php require_once("src/model.Usuario.php") ?>
+
 <?php 
     $activeMenu = "usuarios";
 ?>
@@ -9,13 +11,13 @@
     </ul>
     <form action="facade.php?Acao=IncluirUsuario" method="post" class="form-horizontal">
         <div class="control-group">
-            <label class="control-label" for="nome">Nome</label>
+            <label class="control-label" for="nome"><?php echo Usuario::LB_NOME ?></label>
             <div class="controls">
                 <input type="text" id="nome" name="nome" placeholder="Nome" class="input-xlarge">
             </div>
         </div>
         <div class="control-group">
-            <label class="control-label" for="senha">Senha</label>
+            <label class="control-label" for="senha"><?php echo Usuario::LB_SENHA ?></label>
             <div class="controls">
                 <input type="password" id="senha" name="senha" placeholder="Senha" class="input-xlarge">
             </div>
@@ -27,13 +29,13 @@
             </div>
         </div>        
         <div class="control-group">
-            <label class="control-label" for="email">Email</label>
+            <label class="control-label" for="email"><?php echo Usuario::LB_EMAIL ?></label>
             <div class="controls">
                 <input type="text" id="email" name="email" placeholder="Email" class="input-xlarge">
             </div>
         </div>
         <div class="control-group">
-            <label class="control-label" for="perfil">Perfil</label>
+            <label class="control-label" for="perfil"><?php echo Usuario::LB_PERFIL ?></label>
             <div class="controls">
                 <select id="perfil" name="perfil">
                     <option value="">Selecione...</option>
@@ -50,7 +52,7 @@
         </div>
         <div class="form-actions">
             <button type="submit" class="btn btn-primary">Salvar</button>
-            <button type="button" class="btn" onclick="history.back();">Cancelar</button>
+            <a href="usuarios.php" class="btn">Cancelar</a>
         </div>        
     </form>
 <?php include("shared/bottom.php") ?>

@@ -1,19 +1,17 @@
 <?php 
-    require_once("model.Usuario.php");
     require_once("dao.Dao.php");
+    require_once("model.Usuario.php");
 ?>
 
 <?php  
 /**
 * @author Vitor Freitas
 */
-class UsuarioDao
+class UsuarioDao extends Dao
 {
     
     public function insert($usua) {
-        $conn = mysql_connect("mysql08.redehost.com.br", "u_app", "Cocadaboa01");
-        mysql_select_db("virtour");
-        $sql = "INSERT INTO usuarios VALUES ('', '$usua->email', '$usua->senha', '$usua->nome', '$usua->perfil', '$usua->status')";
+        $sql = "INSERT INTO " . Usuario::TABLE_NAME . " VALUES ('', '$usua->email', '$usua->senha', '$usua->nome', '$usua->perfil', '$usua->status')";
         mysql_query($sql);
         mysql_close($conn);
     }
@@ -27,22 +25,20 @@ class UsuarioDao
     }
 
     public function obterListaUsuarios() {
-        $conn = mysql_connect("mysql08.redehost.com.br", "u_app", "Cocadaboa01");
-        mysql_select_db("virtour");
-        $sql = "SELECT * FROM usuarios";
+        $sql = "SELECT * FROM " . Usuario::TABLE_NAME;
         $rs = mysql_query($sql);
         $usuarios = array();
         for ($i=0; $i < mysql_numrows($rs); $i++) { 
             $usua = new Usuario();
-            $usua->id     = mysql_result($rs,$i,"id");
-            $usua->email  = mysql_result($rs,$i,"email");
-            $usua->senha  = mysql_result($rs,$i,"senha");
-            $usua->nome   = mysql_result($rs,$i,"nome");
-            $usua->perfil = mysql_result($rs,$i,"perfil");
-            $usua->status = mysql_result($rs,$i,"status");
+            $usua->id     = mysql_result($rs, $i, Usuario::CL_ID);
+            $usua->email  = mysql_result($rs, $i, Usuario::CL_EMAIL);
+            $usua->senha  = mysql_result($rs, $i, Usuario::CL_SENHA);
+            $usua->nome   = mysql_result($rs, $i, Usuario::CL_NOME);
+            $usua->perfil = mysql_result($rs, $i, Usuario::CL_PERFIL);
+            $usua->status = mysql_result($rs, $i, Usuario::CL_STATUS);
             array_push($usuarios, $usua);
         }
-        mysql_close($conn);
+        mysql_close($this->conn);
         return $usuarios;
     }
 }

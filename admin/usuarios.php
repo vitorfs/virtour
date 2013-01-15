@@ -2,6 +2,7 @@
     require_once("src/model.Usuario.php");
     require_once("src/dao.UsuarioDao.php");
 ?>
+
 <?php
     $activeMenu = "usuarios";
 ?>
@@ -18,13 +19,13 @@
         </div>
         <button type="button" class="btn"><i class="icon-question-sign"></i></button>
     </form>
-    <table class="table table-striped table-bordered">
+    <table class="table table-striped table-bordered" id="tbl-usuarios">
         <thead>
             <tr>
-                <th>Nome</th>
-                <th>Email</th>
-                <th>Status</th>
-                <th>Perfil</th>
+                <th><?php echo Usuario::LB_NOME ?></th>
+                <th><?php echo Usuario::LB_EMAIL ?></th>
+                <th><?php echo Usuario::LB_STATUS ?></th>
+                <th><?php echo Usuario::LB_PERFIL ?></th>
                 <th>Ação</th>
             </tr>
         </thead>
@@ -32,12 +33,12 @@
             <?php  
                 $usuarioDao = new UsuarioDao();
                 $usuarios = $usuarioDao->obterListaUsuarios();
-                for ($i=0; $i < count($usuarios); $i++) { 
+                foreach ($usuarios as $usuario) {
                     echo "<tr>";
-                    echo "<td>" . $usuarios[$i]->nome . "</td>";
-                    echo "<td>" . $usuarios[$i]->email . "</td>";
-                    echo "<td>" . $usuarios[$i]->status . "</td>";
-                    echo "<td>" . $usuarios[$i]->perfil . "</td>";
+                    echo "<td>" . $usuario->nome . "</td>";
+                    echo "<td>" . $usuario->email . "</td>";
+                    echo "<td>" . $usuario->status . "</td>";
+                    echo "<td>" . $usuario->perfil . "</td>";
                     echo "<td>";
                     echo "<a rel=\"tooltip\" href=\"#\" title=\"Editar Usuário\"><i class=\"icon-pencil\"></i></a>&nbsp;";
                     echo "<a rel=\"tooltip\" href=\"#\" title=\"Excluir Usuário\"><i class=\"icon-remove\"></i></a>";
@@ -50,6 +51,7 @@
     <script type="text/javascript">
         $(function () {
             $("a[rel=tooltip]").tooltip();
+            $("table#tbl-usuarios").possuiRegistros();
         });
     </script>
 <?php include("shared/bottom.php") ?>
