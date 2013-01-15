@@ -14,24 +14,28 @@
             <label class="control-label" for="nome"><?php echo Usuario::LB_NOME ?></label>
             <div class="controls">
                 <input type="text" id="nome" name="nome" placeholder="Nome" class="input-xlarge">
+                <span class="help-inline"></span>
             </div>
         </div>
         <div class="control-group">
             <label class="control-label" for="senha"><?php echo Usuario::LB_SENHA ?></label>
             <div class="controls">
                 <input type="password" id="senha" name="senha" placeholder="Senha" class="input-xlarge">
+                <span class="help-inline"></span>
             </div>
         </div>
         <div class="control-group">
             <label class="control-label" for="confirma-senha">Confirmação Senha</label>
             <div class="controls">
                 <input type="password" id="confirma-senha" name="confirma-senha" placeholder="Confirmação Senha" class="input-xlarge">
+                <span class="help-inline"></span>
             </div>
         </div>        
         <div class="control-group">
             <label class="control-label" for="email"><?php echo Usuario::LB_EMAIL ?></label>
             <div class="controls">
                 <input type="text" id="email" name="email" placeholder="Email" class="input-xlarge">
+                <span class="help-inline"></span>
             </div>
         </div>
         <div class="control-group">
@@ -42,6 +46,7 @@
                     <option value="admin">Administrador</option>
                     <option value="cliente">Cliente</option>
                 </select>
+                <span class="help-inline"></span>
             </div>
         </div>
         <div class="control-group">

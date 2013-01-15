@@ -6,7 +6,7 @@
     <ul class="breadcrumb">
         <li class="active">Empresas</li>
     </ul>
-    <a href="adicionar-empresa.php" class="btn pull-right" style="margin-bottom:20px">Adicionar</a>
+    <a href="incluir-empresa.php" class="btn pull-right" style="margin-bottom:20px">Adicionar</a>
     <table class="table table-striped table-bordered">
         <thead>
             <tr>

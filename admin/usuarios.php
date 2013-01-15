@@ -11,7 +11,7 @@
     <ul class="breadcrumb">
         <li class="active">Usuários</li>
     </ul>
-    <a href="adicionar-usuario.php" class="btn pull-right" style="margin-bottom:20px"><i class="icon-plus"></i> Adicionar</a>
+    <a href="incluir-usuario.php" class="btn pull-right" style="margin-bottom:20px"><i class="icon-plus"></i> Adicionar</a>
     <form class="form-inline">
         <div class="input-append">
           <input class="input-xlarge" id="busca" type="text">
@@ -40,7 +40,7 @@
                     echo "<td>" . $usuario->status . "</td>";
                     echo "<td>" . $usuario->perfil . "</td>";
                     echo "<td>";
-                    echo "<a rel=\"tooltip\" href=\"#\" title=\"Editar Usuário\"><i class=\"icon-pencil\"></i></a>&nbsp;";
+                    echo "<a rel=\"tooltip\" href=\"alterar-usuario.php?id=" . $usuario->id . "\" title=\"Editar Usuário\"><i class=\"icon-pencil\"></i></a>&nbsp;";
                     echo "<a rel=\"tooltip\" href=\"javascript:excluirUsuario('" . $usuario->id . "', '" . $usuario->nome . "');\" title=\"Excluir Usuário\"><i class=\"icon-remove\"></i></a>";
                     echo "</td>";
                     echo "</tr>";
@@ -49,7 +49,7 @@
         </tbody>
     </table>
     <form action="facade.php?Acao=ExcluirUsuario" method="post">
-        <input type="hidden" name="id" id="id-exclusao">
+        <input type="hidden" name="id" id="id-excluir">
         <div class="modal hide fade" id="modal-excluir">
             <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -70,7 +70,7 @@
     </form>
     <script type="text/javascript">
         function excluirUsuario(id, nome) {
-            $("input#id-exclusao").val(id);
+            $("input#id-excluir").val(id);
             $("span#nome-excluir").text(nome);
             $("div#modal-excluir").modal();
         }
