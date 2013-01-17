@@ -6,27 +6,37 @@ class Usuario
 {
     private $id;
     const LB_ID = "Id";
-    const CL_ID = "id";
 
 	private $email;
 	const LB_EMAIL = "Email";
-	const CL_EMAIL = "email";
 
 	private $senha;
 	const LB_SENHA = "Senha";
-	const CL_SENHA = "senha";
 
 	private $nome;
 	const LB_NOME = "Nome";
-	const CL_NOME = "nome";
 
 	private $perfil;
 	const LB_PERFIL = "Perfil";
-	const CL_PERFIL = "perfil";
 
 	private $status;
 	const LB_STATUS = "Status";
-	const CL_STATUS = "status";
+
+	private $dataCriacao;
+	const LB_DATA_CRIACAO = "Data de Criação";
+
+	private $usuarioCriacao;
+	const LB_USUARIO_CRIACAO = "Usuário de Criação";
+
+	private $dataAlteracao;
+	const LB_DATA_ALTERACAO = "Data de Alteração";
+
+	private $usuarioAlteracao;
+	const LB_USUARIO_ALTERACAO = "Usuário de Alteração";
+
+	private $dataUltimoAcesso;
+	const LB_DATA_ULTIMO_ACESSO = "Data do Último Acesso";
+	
 
 	public function __construct() {
 

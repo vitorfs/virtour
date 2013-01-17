@@ -11,10 +11,12 @@ class UsuarioDao extends Dao
 {
     
     public function insert($usua) {
-        $this->open();
-        $sql = "INSERT INTO usuarios VALUES ('', '$usua->email', '$usua->senha', '$usua->nome', '$usua->perfil', '$usua->status')";
-        mysql_query($sql);
-        $this->close();
+        $mysqli = $this->getConnection();
+        $sql = "INSERT INTO usuarios (email, senha, nome, perfil, status) VALUES ('$usua->email', '$usua->senha', '$usua->nome', '$usua->perfil', '$usua->status')";
+        if (!$mysqli->query($sql)) {
+            throw new Exception($mysqli->error);
+        }
+        $mysqli->close();
     }
 
     public function update($usua) {
@@ -22,44 +24,45 @@ class UsuarioDao extends Dao
     }
 
     public function delete($id) {
-        $this->open();
+        $mysqli = $this->getConnection();
         $sql = "DELETE FROM usuarios WHERE id = $id";
-        mysql_query($sql);
-        $this->close();
+        $mysqli->query($sql);
+        $mysqli->close();
     }
 
     public function obterPorId($id) {
-        $this->open();
+        $mysqli = $this->getConnection();
         $sql = "SELECT * FROM usuarios WHERE id = $id";
-        $rs = mysql_query($sql);
-        $usua = new Usuario();
-        $usua->id     = mysql_result($rs, 0, Usuario::CL_ID);
-        $usua->email  = mysql_result($rs, 0, Usuario::CL_EMAIL);
-        $usua->senha  = mysql_result($rs, 0, Usuario::CL_SENHA);
-        $usua->nome   = mysql_result($rs, 0, Usuario::CL_NOME);
-        $usua->perfil = mysql_result($rs, 0, Usuario::CL_PERFIL);
-        $usua->status = mysql_result($rs, 0, Usuario::CL_STATUS);
-        $this->close();
+        if ($rs = $mysqli->query($sql)) {
+            $usua = $rs->fetch_object();
+        }
+        $mysqli->close();
         return $usua;
     }
 
     public function obterListaUsuarios() {
-        $this->open();
+        $mysqli = $this->getConnection();
         $sql = "SELECT * FROM usuarios";
-        $rs = mysql_query($sql);
-        $usuarios = array();
-        for ($i=0; $i < mysql_numrows($rs); $i++) { 
-            $usua = new Usuario();
-            $usua->id     = mysql_result($rs, $i, Usuario::CL_ID);
-            $usua->email  = mysql_result($rs, $i, Usuario::CL_EMAIL);
-            $usua->senha  = mysql_result($rs, $i, Usuario::CL_SENHA);
-            $usua->nome   = mysql_result($rs, $i, Usuario::CL_NOME);
-            $usua->perfil = mysql_result($rs, $i, Usuario::CL_PERFIL);
-            $usua->status = mysql_result($rs, $i, Usuario::CL_STATUS);
-            array_push($usuarios, $usua);
+        if ($rs = $mysqli->query($sql)) {
+            $usuarios = array();
+            while ($row = $rs->fetch_object()) {
+                array_push($usuarios, $row);
+            }            
         }
-        $this->close();
+        $mysqli->close();
         return $usuarios;
+    }
+
+    public function verificaEmailRepetido($email) {
+        $repetido = false;
+        $mysqli = $this->getConnection();
+        $sql = "SELECT COUNT(1) is_unique FROM usuarios WHERE LOWER(email) = LOWER('$email')";
+        if ($rs = $mysqli->query($sql)) {
+            $row = $rs->fetch_row();
+            $repetido = $row[0] > 0;
+        }
+        $mysqli->close();
+        return $repetido;
     }
 }
 ?>

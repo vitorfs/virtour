@@ -10,7 +10,6 @@
         <li class="active">Alterar</li>
     </ul>
     <form action="facade.php?Acao=AlterarUsuario" method="post" class="form-horizontal">
-
         <div class="form-actions">
             <button type="submit" class="btn btn-primary">Salvar</button>
             <a href="usuarios.php" class="btn">Cancelar</a>

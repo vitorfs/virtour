@@ -6,15 +6,9 @@
 */
 abstract class Dao
 {
-    protected $conn;
 
-    public function open() {
-        $this->conn = mysql_connect(DB_HOST, DB_USER, DB_PASSWORD);
-        mysql_select_db(DB_NAME);
-    }
-
-    public function close() {
-        mysql_close($this->conn);
+    public function getConnection() {
+        return new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
     }
 
     public abstract function insert($obj);

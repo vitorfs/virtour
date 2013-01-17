@@ -1,5 +1,6 @@
 div.icons a {
 	color: #333333;
+    display: block;
 }
 
 div.icons a:hover {
